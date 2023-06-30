@@ -1,0 +1,23 @@
+section .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+section .pagination button {
+    padding: 0.7rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+section .pagination button:hover {
+    opacity: .7;
+}

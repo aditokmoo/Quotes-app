@@ -1,0 +1,71 @@
+.quote {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem;
+}
+
+/* RATING */
+.quote .rating {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.quote .rating span.rating_percentage {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+
+.quote .rating span.rating_count {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+}
+
+.quote .rating span .rating_icon {
+    color: #555;
+    cursor: pointer;
+}
+
+.quote .rating span .rating_icon.active {
+    color: #fff;
+}
+
+/* CONTENT */
+.quote .content {
+    background-color: #f2f2f2;
+    color: #000;
+    width: 90%;
+    position: relative;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.quote .content p.content_rate {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 10px;
+    left: 20px;
+}
+
+.quote .content span.content_author {
+    color: #777;
+    position: absolute;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    bottom: 10px;
+    right: 20px;
+}
+
+/* RATING COLORS */
+.orange { color: #fc5603; }
+.light_orange { color: #fc8003; }
+.yellow { color: #f5bf0c; }
+.light_green { color: #9abf2c; }
+.green { color: #03a313; }

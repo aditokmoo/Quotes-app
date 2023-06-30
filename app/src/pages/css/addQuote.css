@@ -1,0 +1,54 @@
+section .form {
+    width: 600px;
+    margin: 150px auto;
+}
+
+section .form h1 {
+    font-size: 3rem;
+}
+
+section .form form {
+    width: 100%;
+    padding: 2rem;
+}
+
+section .form .form_container .input_container {
+    margin: 1.4rem 0;
+}
+
+section .form .form_container .input_container label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+section .form .form_container .input_container input {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+section .form .form_container .btns {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+section .form .form_container .btns button {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
+
+section .form .form_container .btns a {
+    width: 100%;
+}
+
+section .form .form_container button:hover {
+    opacity: .7;
+}
