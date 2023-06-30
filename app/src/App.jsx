@@ -4,12 +4,13 @@ import { SortingQuotes } from './components/SortingQuotes';
 import { FilterQuotes } from './components/FilterQuotes';
 import { Quote } from './components/Quote';
 import { Pagination } from './components/Pagination';
+// toastify
+import { ToastContainer } from 'react-toastify';
 // Icons
 import { FaPlus } from 'react-icons/fa';
 // CSS
 import './App.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
 	return (
@@ -18,8 +19,8 @@ function App() {
 				<h1>Quotes</h1>
 				<div className="section">
 					<div className="select_section">
-						<SortingQuotes />
 						<FilterQuotes />
+						<SortingQuotes />
 					</div>
 					<Quote />
 					<Pagination />

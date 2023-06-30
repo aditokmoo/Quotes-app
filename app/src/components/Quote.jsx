@@ -1,9 +1,9 @@
+import AppContext from '../context/AppContext';
+import { useContext } from 'react';
 // Icons
 import { VscTriangleUp, VscTriangleDown } from 'react-icons/vsc';
 // css
 import './css/quote.css';
-import AppContext from '../context/AppContext';
-import { useContext } from 'react';
 
 export const Quote = () => {
 	const { quotes, voteDown, voteUp, getColorByRating } = useContext(AppContext)

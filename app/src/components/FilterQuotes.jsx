@@ -1,22 +1,32 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 // css
 import './css/filterQuotes.css';
 import AppContext from '../context/AppContext';
 
 export const FilterQuotes = () => {
-	const {handleFilterChange} = useContext(AppContext)
+	const { handleSelectChange, tags, dropdown, setDropdown } = useContext(AppContext);
 
 	return (
 		<section>
 			<div className="filter">
 				<form>
-					<select name="" id="" onChange={(e) => handleFilterChange(e)}>
-						<option value="">Filter quotes</option>
-                        <option value="createdAt">Created</option>
-                        <option value="author">Author</option>
-                        <option value="upvotesCount">Up votes</option>
-                        <option value="downvotesCount">Down votes</option>
-					</select>
+					<div className="multiselect">
+						<div className="selectBox" onClick={() => setDropdown((prevState) => !prevState)}>
+							<select>
+								<option>Select an option</option>
+							</select>
+							<div className="overSelect" />
+						</div>
+						{dropdown && (
+							<div id="checkboxes">
+								{tags.map((tag, index) => (
+									<label htmlFor={tag} key={index}>
+										<input type="checkbox" id={tag} onChange={handleSelectChange} name={tag} />{tag}
+									</label>
+								))}
+							</div>
+						)}
+					</div>
 				</form>
 			</div>
 		</section>

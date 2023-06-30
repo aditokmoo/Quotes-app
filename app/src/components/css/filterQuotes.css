@@ -1,0 +1,36 @@
+.filter {
+    position: relative;
+}
+
+.filter .multiselect {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    color: #000;
+    position: absolute;
+    z-index: 2;
+    border: 1px solid #333;
+  }
+  
+ .filter .multiselect .selectBox {
+    position: absolute;
+    width: 100%;
+}
+
+.filter .multiselect .selectBox .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.filter .multiselect #checkboxes label {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .filter .multiselect #checkboxes label:hover {
+    background-color: #1e90ff;
+  }

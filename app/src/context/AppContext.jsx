@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useRef } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
@@ -9,7 +9,6 @@ export const AppContextProvider = ({ children }) => {
 	const [ totalQuotes, setTotalQuotes ] = useState();
 	const [ updateQuote, setUpdateQuote ] = useState();
 	const [ currentPage, setCurrentPage ] = useState(1);
-	const [ quotesData, setQuotesData ] = useState([]);
 	const [ filter, setFilter ] = useState();
 	const [ formData, setFormData ] = useState({
 		author: '',
@@ -28,7 +27,17 @@ export const AppContextProvider = ({ children }) => {
 
 			setTags(data);
 		} catch (error) {
-			console.log(error);
+			// Error message
+			toast.error(error, {
+				position: 'top-right',
+				autoClose: 1500,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: false,
+				progress: undefined,
+				theme: 'dark'
+			});
 		}
 	};
 
@@ -42,9 +51,12 @@ export const AppContextProvider = ({ children }) => {
 		});
 	};
 
-	useEffect(() => {
-		getTags();
-	}, [dropdown]);
+	useEffect(
+		() => {
+			getTags();
+		},
+		[ dropdown ]
+	);
 
 	const navigate = useNavigate();
 	const total_pages = Math.ceil(totalQuotes / 5);
@@ -96,8 +108,6 @@ export const AppContextProvider = ({ children }) => {
 			});
 
 			const data = await res.json();
-
-			console.log(data);
 			// Clear form data
 			setFormData({
 				author: '',
@@ -146,8 +156,6 @@ export const AppContextProvider = ({ children }) => {
 		if (res_post.status === 200) {
 			const post_data = await res_post.json();
 			setUpdateQuote(post_data);
-			// Sucess message goes here
-			console.log(post_data);
 		} else if (res_post.status === 400) {
 			// Vote already exist so on second click delete vote
 			const res_delete = await fetch(`http://localhost:3000/quotes/${id}/upvote`, {
@@ -262,21 +270,28 @@ export const AppContextProvider = ({ children }) => {
 	useEffect(
 		() => {
 			const getQuotes = async () => {
-				const nez = selected.join(',');
-				console.log(nez);
+				const select = selected.join(',');
 
 				try {
 					const res = await fetch(
-						`http://localhost:3000/quotes?pageSize=5&sortBy=${filter}&page=${currentPage}&tags=${nez}`
+						`http://localhost:3000/quotes?pageSize=5&sortBy=${filter}&page=${currentPage}&tags=${select}`
 					);
-
-					console.log(selected);
 					const data = await res.json();
 
 					setQuotes(data.quotes);
 					setTotalQuotes(data.quotesCount);
 				} catch (error) {
-					console.log(error);
+					// Error message
+			toast.error(error, {
+				position: 'top-right',
+				autoClose: 1500,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: false,
+				progress: undefined,
+				theme: 'dark'
+			});
 				}
 			};
 			getQuotes();

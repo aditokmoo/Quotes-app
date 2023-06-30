@@ -1,32 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
-// css
-import './css/sortingQuotes.css';
+import { useContext } from 'react';
 import AppContext from '../context/AppContext';
 
 export const SortingQuotes = () => {
-	const { handleSelectChange, tags, dropdown, setDropdown } = useContext(AppContext);
+	const { handleFilterChange } = useContext(AppContext)
 
 	return (
 		<section>
 			<div className="sorting">
 				<form>
-					<div className="multiselect">
-						<div className="selectBox" onClick={() => setDropdown((prevState) => !prevState)}>
-							<select>
-								<option>Select an option</option>
-							</select>
-							<div className="overSelect" />
-						</div>
-						{dropdown && (
-							<div id="checkboxes">
-								{tags.map((tag, index) => (
-									<label htmlFor={tag} key={index}>
-										<input type="checkbox" id={tag} onChange={handleSelectChange} name={tag} />{tag}
-									</label>
-								))}
-							</div>
-						)}
-					</div>
+					<select name="" id="" onChange={(e) => handleFilterChange(e)}>
+						<option value="">Filter quotes</option>
+                        <option value="createdAt">Created</option>
+                        <option value="author">Author</option>
+                        <option value="upvotesCount">Up votes</option>
+                        <option value="downvotesCount">Down votes</option>
+					</select>
 				</form>
 			</div>
 		</section>
